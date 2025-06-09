@@ -4,12 +4,12 @@ from logging.handlers import RotatingFileHandler
 
 # Bot Configuration
 TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
-APP_ID = int(os.environ.get("APP_ID", ""))
+APP_ID = int(os.environ.get("APP_ID", "0"))
 API_HASH = os.environ.get("API_HASH", "")
 
 # Database
-CHANNEL_ID = int(os.environ.get("CHANNEL_ID", ""))
-OWNER_ID = int(os.environ.get("OWNER_ID", ""))
+CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "0"))
+OWNER_ID = int(os.environ.get("OWNER_ID", "0"))
 DB_URI = os.environ.get("DATABASE_URL", "")
 DB_NAME = os.environ.get("DATABASE_NAME", "Cluster0")
 
