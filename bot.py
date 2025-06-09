@@ -1,5 +1,7 @@
 import asyncio
 import pyromod.listen
+from aiohttp import web
+from plugins import web_server
 from pyrogram import Client
 from pyrogram.enums import ParseMode
 import sys
@@ -38,6 +40,11 @@ class Bot(Client):
         self.set_parse_mode(ParseMode.HTML)
         self.LOGGER(__name__).info(f"Bot Running..!")
         self.username = usr_bot_me.username
+        
+        # Start Web Server
+        app = web.AppRunner(await web_server())
+        await app.setup()
+        await web.TCPSite(app, "0.0.0.0", PORT).start()
 
     async def stop(self, *args):
         await super().stop()
